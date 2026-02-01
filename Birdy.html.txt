@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bird ❤️ Bunny</title>
+
+<style>
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#ffb6c1, #ffe4e1);
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 40px;
+    color: #ff1493;
+    font-size: 42px;
+}
+
+h2 {
+    color: #ff69b4;
+}
+
+img {
+    width: 240px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px pink;
+}
+
+button {
+    font-size: 22px;
+    padding: 12px 30px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    margin: 30px;
+}
+
+#yesBtn {
+    background: #ff1493;
+    color: white;
+}
+
+#noBtn {
+    background: gray;
+    color: white;
+    position: absolute;
+}
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 24px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from {top:100%;}
+    to {top:-10%;}
+}
+</style>
+</head>
+
+<body>
+
+<h1>🐦 Bird, will you be Bunny’s Valentine? 🐰</h1>
+<h2>From Bunny with Love ❤️</h2>
+
+<!-- Cute Bunny Image -->
+<img src="https://cdn.pixabay.com/photo/2017/01/31/21/23/bunny-2028383_960_720.png">
+
+<br>
+
+<button id="yesBtn" onclick="yesClicked()">YES ❤️</button>
+<button id="noBtn" onmouseover="moveNo()">NO 💔</button>
+
+<script>
+function yesClicked(){
+    document.body.innerHTML = "<h1>Yayyy ❤️ Bird said YES to Bunny 🐰💖<br>Forever Together 🥰</h1>";
+}
+
+function moveNo(){
+    let x = Math.random() * (window.innerWidth - 120);
+    let y = Math.random() * (window.innerHeight - 120);
+    document.getElementById("noBtn").style.left = x + "px";
+    document.getElementById("noBtn").style.top = y + "px";
+}
+
+function createHeart(){
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = Math.random()*30 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),5000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
